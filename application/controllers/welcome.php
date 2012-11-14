@@ -20,8 +20,19 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('welcome_message');
-                $requete = $this->db->query("SELECT * FROM projects;");
                 
+                
+                $query = $this->db->get('projects');
+                
+                if ($query->num_rows() > 0){
+                   foreach ($query->result() as $row)
+                   {
+                      echo $row->title;
+                      echo $row->name;
+                      echo $row->body;
+                   }
+                }
+                else echo "pas de projet";
 	}
 }
 

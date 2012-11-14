@@ -32,7 +32,7 @@ class Welcome extends CI_Controller {
                       echo $row->body;
                    }
                 }
-                else echo "pas de projet";
+                else $texte = "pas de projet";
 	}
 }
 

@@ -19,8 +19,8 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
-                
+		
+                //$this->load->model('User_model');
                 
                 $query = $this->db->get('projects');
                 
@@ -32,7 +32,9 @@ class Welcome extends CI_Controller {
                       echo $row->body;
                    }
                 }
-                else $texte = "pas de projet";
+                else $data['texte'] = "pas de projet";
+                
+                $this->load->view('welcome_message',$data);
 	}
 }
 
